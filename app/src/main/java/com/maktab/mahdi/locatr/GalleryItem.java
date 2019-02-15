@@ -8,6 +8,24 @@ public class GalleryItem {
     private String mCaption;
     private String mUrl;
     private String mOwner;
+    private double mLat;
+    private double mLon;
+
+    public double getmLat() {
+        return mLat;
+    }
+
+    public void setmLat(double mLat) {
+        this.mLat = mLat;
+    }
+
+    public double getmLon() {
+        return mLon;
+    }
+
+    public void setmLon(double mLon) {
+        this.mLon = mLon;
+    }
 
     public String getId() {
         return mId;
