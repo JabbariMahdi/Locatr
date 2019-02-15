@@ -101,6 +101,18 @@ public class FlickrFetchr {
         return uriBuilder.build().toString();
     }
 
+    private String bindUrl(Location location){
+        return ENDPOINT.buildUpon().appendQueryParameter("method",METHOD_SEARCH)
+                .appendQueryParameter("lat",location.getLatitude()+"")
+                .appendQueryParameter("lon",location.getLongitude()+"")
+                .build().toString();
+    }
+
+    public List<GalleryItem> searchPhoto(Location location){
+        String url=bindUrl(location);
+        return downloadGalleryItem(url);
+    }
+
 
     public void parseItem(JSONObject jsonBody, List<GalleryItem> items) throws JSONException {
         JSONObject photosJsonObject = jsonBody.getJSONObject("photos");
